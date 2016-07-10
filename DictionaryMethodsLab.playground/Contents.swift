@@ -13,7 +13,7 @@
  */
 // write your code here
 
-
+var starWarsHeroes = ["Luke Skywalker", "Princess Leia", "Han Solo", "Rey"]
 
 
 /*: question2
@@ -21,6 +21,7 @@
  */
 // write your code here
 
+var starWarsVillains = ["Darth Vader", "Emperor Palpatine"]
 
 
 
@@ -29,6 +30,7 @@
  */
 // write your code here
 
+var starWarsDroids = ["R2-D2", "C-3P0", "IG-88", "BB-8"]
 
 
 
@@ -37,7 +39,7 @@
  */
 // write your code here
 
-
+starWarsVillains.append("Kylo Ren")
 
 
 /*: question5
@@ -45,13 +47,19 @@
  */
 // write your code here
 
+if let igIndex = starWarsDroids.indexOf("IG-88") {
+    starWarsDroids.removeAtIndex(igIndex)
+}
 
-
-
+print(starWarsDroids)
 /*: question6
  ### 6. Excellent! We want to store these arrays in a dictionary. Create a _variable_ dictionary called `starWarsCharacters` with the following keys: "Heroes", "Villains", and "Droids". Assign the appropriate variables that you created in the previous questions to these keys when you initialize the dictionary.
  */
 // write your code here
+
+var starWarsCharacters = ["Heroes" : starWarsHeroes,
+                          "Villains" : starWarsVillains,
+                          "Droids" : starWarsDroids]
 
 
 
@@ -61,15 +69,14 @@
  */
 // write your code here
 
-
-
+var starWarsGangsters = ["Watto", "Jabba the Hutt"]
 
 /*: question8
  ### 8. Insert `starWarsGangsters` into your `starWarsCharacters` dictionary with the key "Gangsters". Use subscript notation.
  */
 // write your code here
 
-
+starWarsCharacters["Gansters"] = starWarsGangsters
 
 
 /*: question9
@@ -77,7 +84,9 @@
  */
 // write your code here
 
-
+for keys in starWarsCharacters.keys{
+    print("\(keys)\n")
+}
 
 
 /*: question10
@@ -85,7 +94,7 @@
  */
 // write your code here
 
-
+print (starWarsCharacters.keys.count)
 
 
 /*: question11
@@ -93,7 +102,11 @@
  */
 // write your code here
 
-
+if starWarsCharacters.isEmpty {
+    print("The dictionary is empty")
+}else{
+    print("There are \(starWarsCharacters.count) items in the dicitionary.")
+}
 
 
 /*: question12
@@ -101,7 +114,7 @@
  */
 // write your code here
 
-
+var starWarsJedi = ["Yoda", "Obi-Wan Kenobi", "Mace Windu"]
 
 
 /*: question13
@@ -109,7 +122,12 @@
  */
 // write your code here
 
-
+var keyAdded = starWarsCharacters.updateValue(starWarsJedi, forKey: "Jedi")
+if keyAdded == nil {
+    print("Added Jedi.")
+}else{
+    print("Updated Jedi Key.")
+}
 
 
 /*: question14
@@ -117,7 +135,12 @@
  */
 // write your code here
 
-
+let keyRemoved = starWarsCharacters.removeValueForKey("Bounty Hunters")
+if keyRemoved != nil {
+    print("Removed Bounty Hunters")
+}else{
+    print("Bounty Hunters did not exist.")
+}
 
 
 /*: question15
@@ -126,11 +149,15 @@
  After you've fixed the error, print out the contents of the "Jedi" key in `starWarsCharacters` to make sure your code works.
  */
 
-/* Start by uncommenting this block of code
+
  if var jedi = starWarsCharacters["Jedi"] {
  jedi.append("Aayla Secura")
+    
+    starWarsCharacters["Jedi"] = jedi
  }
- */
+
+print(starWarsCharacters["Jedi"])
+
 
 
 
@@ -139,13 +166,13 @@
  ### 16. We want to print out the names of our _Star Wars_ heroes line-by-line. Unfortunately, the code below isn't working correctly -- nothing gets printed! Can you fix it so that our heroes are printed out? (Again, the code has been commented out so that it doesn't interfere with earlier questions until they have been completed. Start by uncommenting the code, but there's still another bug!)
  */
 
-/*
- if let heroes = starWarsCharacters["Heros"] {
+
+ if let heroes = starWarsCharacters["Heroes"] {
  for hero in heroes {
  print(hero)
  }
  }
- */
+
 
 
 
